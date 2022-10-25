@@ -1,1 +1,42 @@
 --this file shows how you can use dbdiagram.io for making your ER diagrams for your relational database(s)
+
+--it is as simple as creating a table in SQL, there is little change in syntax
+
+
+--for create table 
+TABLE squad
+{
+    squad_id int [pk]
+    squad_name varchar
+    squad_code varchar
+}
+
+
+
+--if you want some column to be set as primary key
+
+TABLE sportsmen
+{
+    sportsmen_id integer [pk]   //[pk] is the primary key for the 'sportsmen_id' here
+    sportsmen_name varchar [not null]
+    dob date
+    batting_hand varchar
+    bowling_hand varchar
+    origin varchar
+}
+
+
+--foreign key
+
+
+TABLE sportsmen_game
+{
+    sportsmen_game_id int
+    sportsmen_id int
+    squad_id int
+    wicket_keeper int
+    squad_captain int
+}
+
+REF: sportsmen.sportsmen_id < sportsmen_game.sportsmen_id   // referencing one primary key to the other as foreign key
+REF: squad.squad_id < sportsmen_game.squad_id
