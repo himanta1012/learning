@@ -1,1 +1,41 @@
+--creating a database in postgres
 
+CREATE DATABASE "database_name"
+    WITH
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    CONNECTION LIMIT = -1
+    IS_TEMPLATE = False;
+
+--creating a table
+
+CREATE TABLE <table_name>
+(
+    column1 int NOT NULL,
+    column2 varchar(200),
+    column3 varchar(15),
+    CONSTRAINT column1_pkey PRIMARY KEY (column1)
+)
+-- you need to remove '<>'
+
+
+
+--inserting data into a table
+
+INSERT INTO table_name(column1, column2, …)
+VALUES (value1, value2, …);
+
+
+
+
+
+---importing data from CSV file
+
+COPY <table_name>(column1,column2,column3,....)
+from '<file path\file.csv>'
+DELIMITER ','
+CSV HEADER
+  
+--  you need to remove '<>'
+-- remember to match the columns from csv and the table, if you do not map the columns import might give you error.
+  
